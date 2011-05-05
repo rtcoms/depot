@@ -65,5 +65,16 @@ class ProductTest < ActiveSupport::TestCase
       assert_equal I18n.translate('activerecord.errors.messages.taken'),
       product.errors[:title].join('; ')
     end
-  
+    #TO_DO create a unit test case to check length of the title
+    #put validation in mproduct model
+    #create a test product and check if it is valid or not
+    test "product title should have atleast 10 characters" do
+      product = Product.new(:description  => "test product for title length",
+                            :price  => 7.65,
+                            :image_url  => "1.gif"
+                )
+                
+      product.title = "this is"
+      assert product.valid?
+    end
 end
