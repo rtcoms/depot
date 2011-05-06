@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
     cart
   end
   
+  def increment_count
+    if session[:counter].nil? 
+      session[:counter] = 1
+    end
+      session[:counter] += 1
+  end  
+  
 end
